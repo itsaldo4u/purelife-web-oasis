@@ -3,11 +3,11 @@ import React, { ReactNode } from 'react';
 
 interface MobileNavLinkProps {
   href: string;
-  onClick: () => void;
   children: ReactNode;
+  onClick?: () => void;
 }
 
-const MobileNavLink = ({ href, onClick, children }: MobileNavLinkProps) => {
+const MobileNavLink = ({ href, children, onClick }: MobileNavLinkProps) => {
   return (
     <a 
       href={href} 

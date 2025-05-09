@@ -1,27 +1,16 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, ShoppingCart } from 'lucide-react';
 import Logo from '../common/Logo';
 import NavLink from '../common/NavLink';
 import MobileNavLink from '../common/MobileNavLink';
 
-const Navbar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavbarProps {
+  isScrolled: boolean;
+}
 
-  // Track scrolling for navbar effects
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>

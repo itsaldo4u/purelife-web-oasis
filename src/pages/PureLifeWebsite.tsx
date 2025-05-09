@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Importing section components
 import Navbar from '../components/navigation/Navbar';
@@ -12,15 +12,33 @@ import ContactSection from '../components/sections/ContactSection';
 import FooterSection from '../components/sections/FooterSection';
 
 const PureLifeWebsite: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Track scrolling for navbar effects
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-stone-50 text-stone-800 font-sans">
-      <Navbar />
-      <HeroSection />
-      <ProductsSection />
-      <AboutSection />
-      <TestimonialsSection />
-      <NewsletterSection />
-      <ContactSection />
+      <Navbar isScrolled={isScrolled} />
+      <main>
+        <HeroSection />
+        <ProductsSection />
+        <AboutSection />
+        <TestimonialsSection />
+        <NewsletterSection />
+        <ContactSection />
+      </main>
       <FooterSection />
     </div>
   );

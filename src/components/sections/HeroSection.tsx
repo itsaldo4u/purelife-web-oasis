@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Button } from "@/components/ui/button";
 
 const HeroSection: React.FC = () => {
   return (
@@ -13,19 +14,23 @@ const HeroSection: React.FC = () => {
             Discover our collection of natural supplements, teas, and wellness products crafted to nurture your body and mind.
           </p>
           <div className="flex space-x-4">
-            <button className="bg-emerald-600 text-white px-6 py-3 rounded-md hover:bg-emerald-700 transition-colors">
+            <Button className="bg-emerald-600 hover:bg-emerald-700">
               Shop Now
-            </button>
-            <button className="border border-emerald-600 text-emerald-600 px-6 py-3 rounded-md hover:bg-emerald-50 transition-colors">
+            </Button>
+            <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50">
               Learn More
-            </button>
+            </Button>
           </div>
         </div>
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 animate-scale-in">
           <div className="relative">
             <div className="bg-emerald-100 rounded-full h-64 w-64 md:h-80 md:w-80 mx-auto"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <img src="https://source.unsplash.com/photo-1564890369478-c89ca6d9cde9" alt="PureLife natural products" className="h-full object-cover" />
+              <img 
+                src="https://source.unsplash.com/photo-1564890369478-c89ca6d9cde9" 
+                alt="PureLife natural products" 
+                className="h-full object-cover" 
+              />
             </div>
           </div>
         </div>
